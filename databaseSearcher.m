@@ -17,7 +17,7 @@ statusOptions = sort(status);
 
 simpleDatabaseNew
 
-x = inputdlg({'type', 'mp', 'rarity', 'Effects', 'damage', 'attackTypes', 'abilities', 'blank name', 'attackTypes2'});
+x = inputdlg({'type', 'mp', 'rarity', 'Effects', 'damage', 'attackTypes', 'abilities', 'blank name', 'attackTypes2', 'evolves'});
 
 disp('Figures containing: ')
 disp(x)
@@ -114,16 +114,16 @@ for i = 1:length(fieldnames(name))
     if not(isempty(x{5}))
         stringDamage = [string, '.damage'];
         tmpDamage = eval(stringDamage);
-        %tmp5 = strcmpi( tmpDamage, x(5));
+        tmp5 = strcmpi( tmpDamage, x(5));
                 
-        tmpDamage = lower(tmpDamage);
-        x(5) = lower(x(5));
-        tmp5 = strfind(tmpDamage, x(5));
-        if any(horzcat(tmp5{:})) == 0;
-           tmp5 = 0;
-        else
-           tmp5 = 1;
-        end
+%         tmpDamage = lower(tmpDamage);
+%         x(5) = lower(x(5));
+%         tmp5 = strfind(tmpDamage, x(5));
+%         if any(horzcat(tmp5{:})) == 0;
+%            tmp5 = 0;
+%         else
+%            tmp5 = 1;
+%         end
         
         
     else
@@ -179,7 +179,7 @@ for i = 1:length(fieldnames(name))
         
     end
        
-    
+    %%
         %attackTypes:
     if not(isempty(x{9}))
         stringAttackTypes2 = [string, '.attackTypes'];
@@ -201,6 +201,28 @@ for i = 1:length(fieldnames(name))
     end
     
     
+           %%
+    %evolves
+    if not(isempty(x{10}))
+        
+       
+        stringEvolves = [string, '.evolves'];
+        tmpEvolves = eval(stringEvolves);
+        %tmp4 = strcmpi( tmpEffects, x(4));
+        tmpEvolves = lower(tmpEvolves);
+        x(10) = lower(x(10));
+        tmp10 = strfind(tmpEvolves, x(10));
+        if any(horzcat(tmp10{:})) == 0;
+           tmp10 = 0;
+        else
+           tmp10 = 1;
+        end
+        
+    else
+        tmp10 = 1;
+    end
+    
+    
     %%
     %printer
     if x{8}== '2'
@@ -211,7 +233,7 @@ for i = 1:length(fieldnames(name))
         disp(tmpStringi)
         %disp(eval(tmpString));  
         end
-     elseif (any(tmp1) && any(tmp2) && any(tmp3) && any(tmp4) && any(tmp5) && any(tmp6) && any(tmp7) && any(tmp9))
+     elseif (any(tmp1) && any(tmp2) && any(tmp3) && any(tmp4) && any(tmp5) && any(tmp6) && any(tmp7) && any(tmp9) && any(tmp10))
          tmpStringi = num2str(i);
          tmpString = [string, '.fig'];
          tmpStringi = ['ID: ', tmpStringi];
@@ -221,7 +243,8 @@ for i = 1:length(fieldnames(name))
          part2 = char(eval(tmpString));
          newstring = [part1, '   ', part2];
          disp(newstring);
-         
+         %disp(part1);
+         %disp(part2);
          %disp(tmpStringi)
          %disp(eval(tmpString));
     end
