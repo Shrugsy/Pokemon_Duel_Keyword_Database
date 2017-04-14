@@ -1,8 +1,12 @@
 numFigs = input('how many figs?\n');
 
-f = fopen ('simpleDatabaseWritten.m','a');
+filename = 'temp_database2.m';
+
+
+f = fopen (filename,'a');
 
 for i = 1:numFigs
+% for i = 318:numFigs
     
     %fprintf(f,'test\n');
     
@@ -11,19 +15,23 @@ for i = 1:numFigs
     tmpType = ['\nname.a', tmpi, '.type = {''''};']; 
     tmpMP = ['\nname.a', tmpi, '.mp = {''''};']; 
     tmpRarity = ['\nname.a', tmpi, '.rarity = {''''};']; 
-    tmpStatus = ['\nname.a', tmpi, '.status = {''''};']; 
+    tmpEffects = ['\nname.a', tmpi, '.effects = {''''};']; 
     tmpDamage = ['\nname.a', tmpi, '.damage = {''''};']; 
     tmpAttackTypes = ['\nname.a', tmpi, '.attackTypes = {''''};']; 
-    tmpAbilities = ['\nname.a', tmpi, '.abilities = {''''};', '\n']; 
+    tmpAbilities = ['\nname.a', tmpi, '.abilities = {''''};']; 
+    tmpEvolves = ['\nname.a', tmpi, '.evolves = {''''};', '\n']; 
     
     fprintf(f, tmpFig);
     fprintf(f, tmpType);
     fprintf(f, tmpMP);
     fprintf(f, tmpRarity);
-    fprintf(f, tmpStatus);
+    fprintf(f, tmpEffects);
     fprintf(f, tmpDamage);
     fprintf(f, tmpAttackTypes);
     fprintf(f, tmpAbilities);
+    fprintf(f, tmpEvolves);
     
     
-end
+ end
+
+ fclose('all');
