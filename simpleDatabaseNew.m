@@ -2816,7 +2816,7 @@ name.a282.effects = {'Move over chain grass'};
 name.a282.damage = {'20', '70'};
 name.a282.attackTypes = {'White+', 'Gold', 'Blue'};
 name.a282.abilities = {'Forest Leap', 'Leaf Blade'};
-name.a282.evolves = {''};
+name.a282.evolves = {'yes'};
 
 name.a283.fig = {'Sceptile'};
 name.a283.type = {'Grass'};
@@ -2826,7 +2826,7 @@ name.a283.effects = {'Move over 1'};
 name.a283.damage = {'30', '90'};
 name.a283.attackTypes = {'White+', 'Gold'};
 name.a283.abilities = {'Stealth Hit'};
-name.a283.evolves = {'Yes'};
+name.a283.evolves = {'no'};
 
 name.a284.fig = {''};
 name.a284.type = {''};
